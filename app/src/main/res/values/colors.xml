@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="dangnhap">#FF03DAC5</color>
+    <color name="button">#FF03DAC5</color>
+    <color name="maudo">#EA0808</color>
+    <color name="bottom_check">#FF5722</color>
+    <color name="bottom_navigayion">#D0FFFFFF</color>
+</resources>

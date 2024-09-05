@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/baseline_home_24"
+        android:title="@string/trangchu_bottom"/>
+    <item
+        android:id="@+id/navigation_history"
+        android:icon="@drawable/baseline_history_24"
+        android:title="@string/lichsu_bottom"/>
+    <item android:id="@+id/navigation_account"
+        android:icon="@drawable/baseline_person_24"
+        android:title="@string/taikhoan_bottom"/>
+</menu>

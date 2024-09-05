@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">cafe2</string>
+    <string name="dang">Đăng Nhập</string>
+    <string name="email">Email</string>
+    <string name="pass">PassWord</string>
+    <string name="taikhoan_bottom">Tài khoản</string>
+    <string name="trangchu_bottom">Home</string>
+    <string name="lichsu_bottom">Lịch sử</string>
+</resources>
