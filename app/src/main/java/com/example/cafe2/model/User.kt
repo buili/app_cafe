@@ -5,28 +5,25 @@ import android.util.Patterns
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 
-class User(private var email: String, private var pass: String) {
-
-    fun isValidEmail():Boolean{
-        return !TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches()
-    }
-    fun isValidPassword():Boolean{
-        return !TextUtils.isEmpty(pass) && pass.length >= 6
-    }
+class User(private var id:Int,
+           private var email: String,
+           private var password: String,
+           private var username: String,
+           private  var status:Int) {
 
     fun getEmail():String{
         return email
     }
 
     fun getPassword():String{
-        return pass
+        return password
     }
 
     fun setEmail(email: String){
         this.email = email
     }
 
-    fun setPassword(pass: String){
-        this.pass = pass
+    fun setPassword(password: String){
+        this.password = password
     }
 }

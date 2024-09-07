@@ -50,6 +50,9 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
 
+    //thư viện ảnh Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
     //image slide
     implementation("com.github.denzcoskun:ImageSlideshow:0.1.2")
 

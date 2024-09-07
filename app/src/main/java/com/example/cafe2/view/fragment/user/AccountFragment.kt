@@ -1,4 +1,4 @@
-package com.example.cafe2.view.fragment
+package com.example.cafe2.view.fragment.user
 
 import android.os.Bundle
 import android.view.LayoutInflater

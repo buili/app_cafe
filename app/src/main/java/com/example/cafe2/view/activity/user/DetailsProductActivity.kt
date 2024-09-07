@@ -1,4 +1,4 @@
-package com.example.cafe2.view.activity
+package com.example.cafe2.view.activity.user
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
