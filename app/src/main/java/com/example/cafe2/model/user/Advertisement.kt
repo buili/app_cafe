@@ -1,4 +1,4 @@
-package com.example.cafe2.model
+package com.example.cafe2.model.user
 
 class Advertisement(private var id:Int,
     private var name:String,

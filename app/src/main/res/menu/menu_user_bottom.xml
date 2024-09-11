@@ -5,6 +5,10 @@
         android:icon="@drawable/baseline_home_24"
         android:title="@string/trangchu_bottom"/>
     <item
+        android:id="@+id/navigation_cart"
+        android:icon="@drawable/baseline_shopping_cart_24"
+        android:title="@string/trangchu_bottom"/>
+    <item
         android:id="@+id/navigation_history"
         android:icon="@drawable/baseline_history_24"
         android:title="@string/lichsu_bottom"/>

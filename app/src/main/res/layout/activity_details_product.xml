@@ -1,39 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginStart="10dp"
-    android:layout_marginEnd="10dp"
-    android:orientation="vertical"
-    tools:context=".view.activity.user.DetailsProductActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.Toolbar
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        app:title="tên sản phẩm" />
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="vertical"
+        tools:context=".view.activity.user.DetailsProductActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="360dp"
-        android:layout_marginTop="5dp">
-
-        <ImageView
+        <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="280dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_launcher_background" />
+            android:layout_height="?actionBarSize"
+            app:title="tên sản phẩm" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:layout_marginTop="5dp">
+
+            <ImageView
+                android:id="@+id/img_detail_product"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/txt_name_detail_product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Cappuccino" />
+
+                        <TextView
+                            android:id="@+id/txt_price_detail_product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="10.000vnđ" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/txt_topping_detail_product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Đồ phụ" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="3">
+
+                            <ImageView
+
+                                android:id="@+id/img_reduce_number"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="3dp"
+                                android:layout_weight="1"
+                                android:background="@color/edt"
+                                android:src="@drawable/baseline_horizontal_rule_24" />
+
+                            <TextView
+                                android:id="@+id/txt_quantity_product"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="3dp"
+                                android:layout_weight="1"
+                                android:background="@color/edt"
+                                android:gravity="center"
+                                android:text="1"
+                                android:textStyle="bold" />
+
+                            <ImageView
+                                android:id="@+id/img_add_number"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="3dp"
+                                android:layout_weight="1"
+                                android:background="@color/edt"
+                                android:src="@drawable/baseline_add_24" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Đánh giá" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:src="@drawable/baseline_arrow_forward_ios_24" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="230dp"
             android:layout_gravity="bottom"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="15dp"
+            android:layout_margin="15dp"
             android:background="@color/bottom_check"
             android:elevation="10dp"
-            app:cardBackgroundColor="@color/bottom_check"
             app:cardCornerRadius="8dp">
 
             <LinearLayout
@@ -43,121 +155,188 @@
                 android:orientation="vertical"
                 android:weightSum="3">
 
-                <RelativeLayout
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="8dp"
                     android:layout_weight="1"
-                    android:padding="10dp">
+                    android:text="Tùy chỉnh"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cappuccino" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:text="10.000vnđ" />
-                </RelativeLayout>
-
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:padding="10dp">
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:weightSum="3">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cappuccino" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:text="10.000vnđ" />
-                </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:padding="10dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="Kích thước" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cappuccino" />
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/chip_group_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            app:singleSelection="true">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:text="10.000vnđ" />
-                </RelativeLayout>
+                            <com.google.android.material.chip.Chip
+                                android:checkable="true"
+                                app:chipBackgroundColor="@color/chip_background_selector"
+                                android:checked="true"
+                                android:id="@+id/chip_group_small"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nhỏ" />
+
+                            <com.google.android.material.chip.Chip
+                                android:checkable="true"
+                                app:chipBackgroundColor="@color/chip_background_selector"
+                                android:id="@+id/chip_group_medium"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Vừa" />
+                            <com.google.android.material.chip.Chip
+                                android:checkable="true"
+                                app:chipBackgroundColor="@color/chip_background_selector"
+                                android:id="@+id/chip_group_big"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Lớn" />
+                        </com.google.android.material.chip.ChipGroup>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="2" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="Lớn"
+                            android:textAllCaps="false" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toStartOf="@+id/btn_1"
+                            android:text="Vừa"
+                            android:textAllCaps="false" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="0dp"
+                            android:layout_toStartOf="@+id/btn_2"
+                            android:text="@string/small_size"
+                            android:textAllCaps="false" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="2" />
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            app:singleSelection="true">
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Đá" />
+
+                            <com.google.android.material.chip.Chip
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nóng" />
+                        </com.google.android.material.chip.ChipGroup>
+                    </RelativeLayout>
+                </LinearLayout>
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-    </FrameLayout>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="240dp"
-        android:layout_gravity="bottom"
-        android:layout_margin="15dp"
-        android:background="@color/bottom_check"
-        android:elevation="10dp"
-        app:cardBackgroundColor="@color/bottom_check"
-        app:cardCornerRadius="8dp">
+        <RelativeLayout
 
-        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            android:weightSum="4">
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/lear">
 
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:text="Tùy chỉnh"
-                android:textSize="20sp" />
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:padding="10dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_centerVertical="true"
+                    android:id="@+id/txt_sum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cappuccino" />
+                    android:text="Tổng tiền"
+                    android:textSize="15sp" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn1"
-                    android:text="1"
-                    android:layout_alignParentEnd="true"
+                <TextView
+                    android:id="@+id/txt_sum_price"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn2"
-                    android:text="2"
-                    android:layout_toStartOf="@+id/btn1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-                <Button
-                    android:id="@+id/btn3"
-                    android:text="3"
-                    android:layout_toStartOf="@+id/btn2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </RelativeLayout>
+                    android:layout_height="wrap_content"
+                    android:text="40.000vnđ"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_add_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/btnadd"
+                android:text="Thêm vào giỏ hàng"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

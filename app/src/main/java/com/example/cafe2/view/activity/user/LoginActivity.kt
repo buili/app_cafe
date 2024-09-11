@@ -116,10 +116,14 @@ class LoginActivity : AppCompatActivity() {
                 { userModel ->
                     if (userModel.isSuccess()) {
                         if (status == 0) {
+                            Utils.userCurrent = userModel.getResult()
+                            Log.d("UserCurrent", Utils.userCurrent.getId().toString())
                             val intent = Intent(applicationContext, AdminActivity::class.java)
                             startActivity(intent)
 
                         }else {
+                            Utils.userCurrent = userModel.getResult()
+                            Log.d("UserCurrent", Utils.userCurrent.getId().toString())
                             val intent = Intent(applicationContext, MainActivity::class.java)
                             startActivity(intent)
 

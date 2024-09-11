@@ -13,10 +13,10 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cafe2.R
-import com.example.cafe2._interface.RvInterface
-import com.example.cafe2.adapter.ItemProductAdapter
+import com.example.cafe2._interface.ProductInterface
+import com.example.cafe2.adapter.user.ItemProductAdapter
 import com.example.cafe2.databinding.FragmentTabBinding
-import com.example.cafe2.model.Product
+import com.example.cafe2.model.user.Product
 import com.example.cafe2.retrofit.ApiCafe
 import com.example.cafe2.retrofit.RetrofitClient
 import com.example.cafe2.util.Utils
@@ -25,7 +25,8 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
-class TabFragment : Fragment(), RvInterface {
+//class TabFragment : Fragment(), ItemProductAdapter {
+class TabFragment : Fragment() {
     private lateinit var fragmentTabBinding: FragmentTabBinding
     private lateinit var recyclerView: RecyclerView
     private lateinit var itemProductAdapter: ItemProductAdapter
@@ -53,6 +54,7 @@ class TabFragment : Fragment(), RvInterface {
         arguments?.let {
             idCategory = it.getString(ID_CATEGORY).toString()
         }
+
     }
 
     override fun onCreateView(
@@ -68,9 +70,14 @@ class TabFragment : Fragment(), RvInterface {
             false
         )
         initView()
-        val categoryInt = getStatusAsInt(idCategory)
-        getData(categoryInt)
+
+       // getData(idCategory.toInt())
         return fragmentTabBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        getData(idCategory.toInt())
     }
 
     private fun initView() {
@@ -95,7 +102,8 @@ class TabFragment : Fragment(), RvInterface {
                     { productModel ->
                         if (productModel.isSuccess()) {
                             listProduct = productModel.getResult()
-                            itemProductAdapter = ItemProductAdapter(listProduct, this)
+                          //  itemProductAdapter = ItemProductAdapter(listProduct, this)
+                            itemProductAdapter = ItemProductAdapter(listProduct)
                             recyclerView.adapter = itemProductAdapter
                         }
                     },
@@ -107,18 +115,21 @@ class TabFragment : Fragment(), RvInterface {
                 )
         )
     }
-    private fun getStatusAsInt(status: String): Int {
-        for (i in 0..4) {
-            if (Utils.category(i).equals(status)) {
-                return i
-            }
-        }
-        return -1
-    }
-    override fun onClick(position: Int) {
-        //Toast.makeText(context, "Item clicked at position $position", Toast.LENGTH_SHORT).show()
-        val intent: Intent = Intent(context, DetailsProductActivity::class.java)
-        startActivity(intent)
-    }
+
+//    override fun onClick(position: Int) {
+//        //Toast.makeText(context, "Item clicked at position $position", Toast.LENGTH_SHORT).show()
+//        val intent = Intent(context, DetailsProductActivity::class.java)
+//        intent.putExtra("editCategory", item)
+//        context.startActivity(intent)
+//    }
+
+//    override fun onResume() {
+//        super.onResume()
+//        if (listProduct.isEmpty()) {
+//            getData(idCategory.toInt())
+//        }
+//    }
+
+
 
 }

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/img_product_cart"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:src="@drawable/noanh" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/img_product_cart"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt_name_product_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coffee" />
+
+            <TextView
+                android:id="@+id/txt_price_product_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="50.000vnd" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:padding="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="8dp"
+                android:layout_toStartOf="@+id/txt_quantity_cart"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:paddingEnd="8dp"
+                android:text="Coffee dai fwfedai dai dai dai dai dai dai adi dai adi adi dai aidai" />
+
+            <!-- TextView thứ hai -->
+            <TextView
+                android:id="@+id/txt_quantity_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="x1" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <ImageView
+                android:src="@drawable/baseline_edit_note_24"
+                android:id="@+id/img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đồ phụ" />
+            <ImageView
+                android:src="@drawable/baseline_restore_from_trash_24"
+                android:layout_marginRight="20dp"
+                android:layout_toStartOf="@+id/line2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:id="@+id/line2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <ImageView
+                    android:id="@+id/img_reduce_number_cart"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:background="@color/edt"
+                    android:src="@drawable/baseline_horizontal_rule_24" />
+
+                <TextView
+                    android:id="@+id/txt_quantity_product_cart"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:background="@color/edt"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/img_add_number_cart"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_margin="3dp"
+                    android:layout_weight="1"
+                    android:background="@color/edt"
+                    android:src="@drawable/baseline_add_24" />
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/txt_sum_price_product_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="50.000vnd" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

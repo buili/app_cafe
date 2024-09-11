@@ -5,11 +5,16 @@ import android.util.Patterns
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 
-class User(private var id:Int,
-           private var email: String,
-           private var password: String,
-           private var username: String,
-           private  var status:Int) {
+class User(private var id:Int = 0,
+           private var email: String="",
+           private var password: String="",
+           private var username: String="",
+           private  var status:Int=0) {
+
+    fun getId():Int = id
+    fun setId(id:Int){
+        this.id = id
+    }
 
     fun getEmail():String{
         return email

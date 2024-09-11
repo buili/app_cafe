@@ -1,11 +1,12 @@
-package com.example.cafe2.model
+package com.example.cafe2.model.user
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 class Product(private var id:Int,
               private var name:String,
               private var image:String,
-              private var price:Int) {
+              private var price:Int) : Serializable {
     fun getId(): Int {
         return id
     }

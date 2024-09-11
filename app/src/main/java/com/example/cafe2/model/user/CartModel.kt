@@ -1,8 +1,8 @@
-package com.example.cafe2.model
+package com.example.cafe2.model.user
 
-class AdvertisementModel( private var success:Boolean,
-private var message:String,
-private var result:MutableList<Advertisement>) {
+class CartModel(private var success:Boolean,
+                private var message:String,
+                private var result:MutableList<Cart>) {
 
     fun isSuccess() = success
     fun setSuccess(success: Boolean){
@@ -15,7 +15,7 @@ private var result:MutableList<Advertisement>) {
     }
 
     fun getResult() = result
-    fun setResult(result: MutableList<Advertisement>){
+    fun setResult(result: MutableList<Cart>){
         this.result = result
     }
 }

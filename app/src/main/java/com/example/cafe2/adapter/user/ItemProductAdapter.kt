@@ -1,24 +1,18 @@
-package com.example.cafe2.adapter
+package com.example.cafe2.adapter.user
 
-import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-
-import com.example.cafe2._interface.RvInterface
-
 import com.example.cafe2.R
 import com.example.cafe2.databinding.ItemProductBinding
-import com.example.cafe2.model.Product
+import com.example.cafe2.model.user.Product
+import com.example.cafe2.view.activity.user.DetailsProductActivity
 
 class ItemProductAdapter(
-    private val listProduct: List<Product>,
-    private val listener: RvInterface,
+    private val listProduct: MutableList<Product>,
+   // private val listener: ProductInterface,
 ) :
     RecyclerView.Adapter<ItemProductAdapter.ViewHolder>() {
 
@@ -26,7 +20,8 @@ class ItemProductAdapter(
     inner class ViewHolder(val itemProductBinding: ItemProductBinding) : RecyclerView.ViewHolder(itemProductBinding.root) {
        init {
            itemProductBinding.root.setOnClickListener{
-               listener.onClick(adapterPosition)
+               //listener.onClick(adapterPosition)
+              // listener.onClick()
            }
        }
     }
@@ -55,5 +50,14 @@ class ItemProductAdapter(
             .error(R.drawable.error)
             .into(holder.itemProductBinding.imgProduct)
 
+        holder.itemView.setOnClickListener{
+            val intent = Intent(context, DetailsProductActivity::class.java)
+            intent.putExtra("product",item)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            context.startActivity(intent)
+        }
+
     }
 }
+
+

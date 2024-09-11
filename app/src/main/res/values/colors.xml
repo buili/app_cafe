@@ -8,4 +8,7 @@
     <color name="bottom_check">#FF5722</color>
     <color name="bottom_navigayion">#D0FFFFFF</color>
     <color name="edt">#E3DCDC</color>
+    <color name="lear">#E1D5D0</color>
+    <color name="btnadd">#5C2C17</color>
+
 </resources>
