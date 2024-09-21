@@ -54,13 +54,14 @@
                             android:text="Thêm vào giỏ hàng" />
 
                         <RelativeLayout
-                            android:id="@+id/rela"
+                            android:id="@+id/rela1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txt_add_cart"
                             android:layout_marginLeft="5dp">
 
                             <TextView
+                                android:textStyle="bold"
                                 android:id="@+id/txt1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -72,6 +73,35 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/txt1"
                                 android:text="Chưa chọn phương thức thanh toán" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/baseline_keyboard_arrow_right_24" />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_marginTop="5dp"
+                            android:id="@+id/rela_address_shipping"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rela1"
+                            android:layout_marginLeft="5dp">
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:id="@+id/txt_address_shipping"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Địa chỉ giao hàng" />
+
+                            <TextView
+                                android:id="@+id/txt4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txt_address_shipping"
+                                android:text="Chưa chọn địa chỉ giao hàng" />
 
                             <ImageView
                                 android:layout_width="wrap_content"

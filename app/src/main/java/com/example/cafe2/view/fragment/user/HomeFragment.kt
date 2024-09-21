@@ -123,9 +123,9 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        if (!Utils.listCategory.isNullOrEmpty()) {
-            initControl()
-        }
+//        if (!Utils.listCategory.isNullOrEmpty()) {
+//            initControl()
+//        }
     }
 }
 

@@ -66,7 +66,8 @@ class DetailsProductActivity : AppCompatActivity() {
 //            startActivity(intent)
             val idProduct = product?.getId()
             if (idProduct != null) {
-                addCart(1, idProduct, quantity)
+                addCart(Utils.userCurrent.getId(), idProduct, quantity)
+                Log.d("detailsProduct1", "id1: ${Utils.userCurrent.getId()}" )
             }
         }
 
@@ -99,6 +100,7 @@ class DetailsProductActivity : AppCompatActivity() {
                             "Thêm vào giỏ hàng thành công",
                             Toast.LENGTH_SHORT
                         ).show()
+                        Log.d("Cart Info", "UserID: $idUser, ProductID: $idProduct, Quantity: $quantity")
                         val intent = Intent(this, MainActivity::class.java)
                         val bundle = Bundle()
                         bundle.putSerializable("productDetail", product)
@@ -136,6 +138,7 @@ class DetailsProductActivity : AppCompatActivity() {
                 .into(imgProduct)
             txtNameProduct.text = product?.getName()
             txtPriceProduct.text = product?.getPrice().toString()
+            txtSumPrice.text = product?.getPrice().toString()
 
         }
     }

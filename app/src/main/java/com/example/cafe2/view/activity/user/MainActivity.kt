@@ -9,6 +9,7 @@ import com.example.cafe2.R
 import com.example.cafe2.databinding.ActivityMainBinding
 import com.example.cafe2.model.user.Product
 import com.example.cafe2.util.Utils
+import com.example.cafe2.view.fragment.admin.OrderFragment
 import com.example.cafe2.view.fragment.user.AccountFragment
 import com.example.cafe2.view.fragment.user.CartFragment
 import com.example.cafe2.view.fragment.user.HomeFragment
@@ -68,6 +69,11 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.navigation_cart -> {
                     replaceFragment(CartFragment())
+                    true
+                }
+
+                R.id.navigation_history ->{
+                    replaceFragment(OrderFragment())
                     true
                 }
 

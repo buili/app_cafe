@@ -47,6 +47,7 @@ class CategoryFragment:Fragment() {
             false
         )
         initView()
+        Log.d("UserCurrent", Utils.userCurrent.getId().toString())
         getCategory()
         initControl()
         return fragmentCategoryBinding.root

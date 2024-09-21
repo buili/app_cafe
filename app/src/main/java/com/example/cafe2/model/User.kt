@@ -9,7 +9,7 @@ class User(private var id:Int = 0,
            private var email: String="",
            private var password: String="",
            private var username: String="",
-           private  var status:Int=0) {
+           private  var status:Int=1) {
 
     fun getId():Int = id
     fun setId(id:Int){
@@ -30,5 +30,10 @@ class User(private var id:Int = 0,
 
     fun setPassword(password: String){
         this.password = password
+    }
+
+    fun getStatus():Int = status
+    fun setStatus(status:Int){
+        this.status = status
     }
 }

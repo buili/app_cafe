@@ -73,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:text="Đồ phụ" />
             <ImageView
+                android:id="@+id/img_delete"
                 android:src="@drawable/baseline_restore_from_trash_24"
                 android:layout_marginRight="20dp"
                 android:layout_toStartOf="@+id/line2"

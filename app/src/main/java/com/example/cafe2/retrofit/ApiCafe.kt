@@ -2,8 +2,12 @@ package com.example.cafe2.retrofit
 
 import com.example.cafe2.model.UserModel
 import com.example.cafe2.model.admin.CategoryModel
+import com.example.cafe2.model.admin.ItemModel
+import com.example.cafe2.model.admin.OrdersModel
+import com.example.cafe2.model.user.AddressModel
 import com.example.cafe2.model.user.AdvertisementModel
 import com.example.cafe2.model.user.CartModel
+import com.example.cafe2.model.user.MessageModel
 import com.example.cafe2.model.user.ProductModel
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.Field
@@ -65,4 +69,91 @@ interface ApiCafe {
     fun getCart(
         @Field("idUser") idUser: Int?
     ): Observable<CartModel>
+
+    @POST("addOrder.php")
+    @FormUrlEncoded
+    fun addOrder(
+        @Field("idUser") idUser: Int,
+        @Field("quantity") quantity: Int?,
+        @Field("totalAmount") totalAmount: Long?,
+        @Field("detail") detail: String?
+    ): Observable<MessageModel>
+
+    @POST("updateCart.php")
+    @FormUrlEncoded
+    fun updateCart(
+        @Field("idUser") idUser: Int,
+        @Field("idProduct") idProduct: Int,
+        @Field("quantity") quantity: Int
+    ): Observable<CartModel>
+
+    @POST("deleteCart.php")
+    @FormUrlEncoded
+    fun deleteCart(
+        @Field("idUser") idUser: Int,
+        @Field("idProduct") idProduct: Int,
+    ): Observable<CartModel>
+
+    @POST("signUp.php")
+    @FormUrlEncoded
+    fun signUp(
+        @Field("email") email: String,
+        @Field("password") password: String,
+        @Field("userName") userName: String,
+        @Field("mobile") mobile: String,
+    ): Observable<UserModel>
+
+    @POST("getOrder.php")
+    @FormUrlEncoded
+    fun getOrder(
+        @Field("idUser") idUser: Int
+    ): Observable<OrdersModel>
+
+    @POST("getOrderByStatus.php")
+    @FormUrlEncoded
+    fun getOrderByStatus(
+        @Field("idUser") idUser: Int,
+        @Field("status") status: Int
+    ): Observable<OrdersModel>
+
+    @POST("getOrderTracking.php")
+    @FormUrlEncoded
+    fun getOrderTracking(
+        @Field("idOrder") idOrder: Int
+    ): Observable<ItemModel>
+
+    @POST("getStatus.php")
+    @FormUrlEncoded
+    fun getStatus(
+        @Field("idOrder") idOrder: Int
+    ): Observable<OrdersModel>
+
+    @POST("updateOrder.php")
+    @FormUrlEncoded
+    fun updateOrder(
+        @Field("idOrder") idOrder: Int,
+        @Field("status") status: Int
+    ): Observable<MessageModel>
+
+    @POST("getAddress.php")
+    @FormUrlEncoded
+    fun getAddress(
+        @Field("idUser") idUser: Int
+    ): Observable<AddressModel>
+
+    @POST("addAddress.php")
+    @FormUrlEncoded
+    fun addAddress(
+        @Field("idUser") idUser: Int,
+        @Field("name") name: String,
+        @Field("phone") phone: String,
+        @Field("address") address: String
+    ): Observable<AddressModel>
+
+    @POST("getUser.php")
+    @FormUrlEncoded
+    fun getUser(
+        @Field("email") email: String
+    ): Observable<UserModel>
+
 }

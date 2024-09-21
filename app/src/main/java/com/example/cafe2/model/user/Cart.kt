@@ -1,4 +1,4 @@
 package com.example.cafe2.model.user
 
-class Cart(val idUser:Int, val idProduct:Int, val quantity:Int, val product: Product) {
+class Cart(var idUser:Int, var idProduct:Int, var quantity:Int, var product: Product) {
 }

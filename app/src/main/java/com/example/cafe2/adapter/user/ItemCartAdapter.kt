@@ -1,15 +1,19 @@
 package com.example.cafe2.adapter.user
 
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cafe2.R
+import com.example.cafe2._interface.ImageClickInterface
 import com.example.cafe2.databinding.ItemCartBinding
 import com.example.cafe2.model.user.Cart
+import com.example.cafe2.util.Utils
 import kotlin.time.times
 
-class ItemCartAdapter(private val listCart:MutableList<Cart>)
+class ItemCartAdapter(private val listCart:MutableList<Cart>,
+    private val listener:ImageClickInterface)
     :RecyclerView.Adapter<ItemCartAdapter.ViewHolder>() {
     inner class ViewHolder(val itemCartBinding: ItemCartBinding): RecyclerView.ViewHolder(itemCartBinding.root) {
         init {
@@ -33,8 +37,6 @@ class ItemCartAdapter(private val listCart:MutableList<Cart>)
         holder.itemCartBinding.txtNameProductCart.text = item.product.getName()
         holder.itemCartBinding.txtQuantityCart.text = item.quantity.toString()
         holder.itemCartBinding.txtQuantityProductCart.text = item.quantity.toString()
-        holder.itemCartBinding.imgReduceNumberCart
-        holder.itemCartBinding.imgAddNumberCart
 
         val price= item.quantity * item.product.getPrice()
         holder.itemCartBinding.txtSumPriceProductCart.text = price.toString()
@@ -45,5 +47,15 @@ class ItemCartAdapter(private val listCart:MutableList<Cart>)
             .placeholder(R.drawable.noanh)
             .error(R.drawable.error)
             .into(holder.itemCartBinding.imgProductCart)
+
+        holder.itemCartBinding.imgReduceNumberCart.setOnClickListener{
+            listener.onImageClick(item, position, 1)
+        }
+        holder.itemCartBinding.imgAddNumberCart.setOnClickListener{
+            listener.onImageClick(item, position, 2)
+        }
+        holder.itemCartBinding.imgDelete.setOnClickListener{
+            listener.onImageClick(item, position, 0)
+        }
     }
 }

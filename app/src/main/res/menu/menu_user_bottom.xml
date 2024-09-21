@@ -7,7 +7,7 @@
     <item
         android:id="@+id/navigation_cart"
         android:icon="@drawable/baseline_shopping_cart_24"
-        android:title="@string/trangchu_bottom"/>
+        android:title="Giỏ hàng"/>
     <item
         android:id="@+id/navigation_history"
         android:icon="@drawable/baseline_history_24"

@@ -4,11 +4,9 @@
 
 <androidx.appcompat.widget.LinearLayoutCompat
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/maudo">
+    android:layout_height="match_parent">
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_logout"
         android:text="Đăng xuất"
@@ -16,4 +14,5 @@
         android:layout_height="wrap_content"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
+
 </layout>
