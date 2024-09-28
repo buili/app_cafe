@@ -1,5 +1,6 @@
 package com.example.cafe2.view.activity.admin
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cafe.model.User
 import com.example.cafe2.R
 import com.example.cafe2.adapter.admin.ItemProcessAdapter
 import com.example.cafe2.databinding.ActivityOrderTrackingBinding
@@ -37,6 +39,7 @@ class OrderTrackingActivity : AppCompatActivity() {
     private lateinit var view1: View
     private lateinit var view2: View
     private var status = 0
+    private var role = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +49,7 @@ class OrderTrackingActivity : AppCompatActivity() {
         initView()
         val idOrder = intent.getIntExtra("idOrder", 0)
         if (idOrder != null) {
+            getRole(Utils.userCurrent.getId())
             getData(idOrder)
             getStatus(idOrder)
             initControl(idOrder)
@@ -55,12 +59,29 @@ class OrderTrackingActivity : AppCompatActivity() {
     }
 
     private fun initControl(idOrder: Int) {
-        img1.setOnClickListener {
-            updateOrder(idOrder, 1)
+        if(role == 0) {
+            img1.setOnClickListener {
+               // updateOrder(idOrder, 1)
+                confirmUpdateOrder(idOrder, 1)
+            }
+            img2.setOnClickListener {
+                //updateOrder(idOrder, 2)
+                confirmUpdateOrder(idOrder, 2)
+            }
         }
-        img2.setOnClickListener{
-            updateOrder(idOrder, 2)
-        }
+    }
+    private fun confirmUpdateOrder(idOrder: Int, status: Int){
+        var builder: AlertDialog.Builder = AlertDialog.Builder(applicationContext)
+        builder.setTitle("Thông báo")
+            .setIcon(R.drawable.baseline_announcement_24)
+            .setMessage("Xác nhận tiếp theo")
+            .setPositiveButton("Đồng ý") { dialog, which ->
+                updateOrder(idOrder, status)
+            }
+            .setNegativeButton("Hủy", { dialog, which ->
+                dialog.dismiss()
+            })
+        builder.show()
     }
 
     private fun updateOrder(idOrder: Int, status: Int) {
@@ -144,6 +165,28 @@ class OrderTrackingActivity : AppCompatActivity() {
                     ).show()
                 }
             ))
+    }
+
+    private fun getRole(idUser: Int) {
+        compositeDisposable.add(apiCafe.getRole(idUser)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                { it ->
+                    if (it.isSuccess()) {
+                        val user: User = it.getResult()
+                        role = user.getStatus()
+                        Log.d("OrderTracking", role.toString())
+                    }
+                },{
+                    Toast.makeText(
+                        applicationContext,
+                        "Lỗi " + it.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            )
+        )
     }
 
     private fun initView() {

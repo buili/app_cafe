@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.databinding.DataBindingUtil
@@ -25,6 +26,7 @@ class AccountFragment:Fragment() {
 
     private lateinit var fragmentAccountFragment:FragmentAccountBinding
     private lateinit var btnLogout:AppCompatButton
+    private lateinit var txtLogout:TextView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -54,9 +56,26 @@ class AccountFragment:Fragment() {
             )
             startActivity(intent)
         }
+
+        txtLogout.setOnClickListener{
+            val mypref: SharedPreferences = requireContext().getSharedPreferences("login", AppCompatActivity.MODE_PRIVATE)
+            val myedit:SharedPreferences.Editor = mypref.edit()
+            myedit.clear()
+            myedit.commit()
+            Firebase.auth.signOut()
+            val googleSignInClient = GoogleSign.getGoogleSignInClient(requireContext())
+            googleSignInClient.signOut()
+            googleSignInClient.revokeAccess()
+            val intent: Intent = Intent(
+                context,
+                LoginActivity::class.java
+            )
+            startActivity(intent)
+        }
     }
 
     private fun initView() {
         btnLogout = fragmentAccountFragment.btnLogout
+        txtLogout = fragmentAccountFragment.txtLogout
     }
 }

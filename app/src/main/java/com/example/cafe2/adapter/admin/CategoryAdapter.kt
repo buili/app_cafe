@@ -1,11 +1,14 @@
 package com.example.cafe2.adapter.admin
 
+import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cafe2.R
 import com.example.cafe2.databinding.ItemCategoryBinding
 import com.example.cafe2.model.admin.Category
 import com.example.cafe2.retrofit.ApiCafe
@@ -51,37 +54,51 @@ class CategoryAdapter(val listCategory: MutableList<Category>) :
             context.startActivity(intent)
         }
         holder.itemCategoryBinding.imgDeleteCategory.setOnClickListener {
-            compositeDisposable.add(
-                apiCafe.deleteCategory(item.id)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ categoryModel ->
-                        if (categoryModel.isSuccess()) {
-                            listCategory.removeAt(position)
-                            notifyItemRemoved(position)
-                            notifyItemRangeChanged(position, listCategory.size)
-                            Toast.makeText(
-                                context,
-                                "Xóa loại đồ uống thành công",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        } else {
-                            Toast.makeText(
-                                context,
-                                "Xóa loại đồ uống không thành công",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                    }, { throwable ->
+            var builder: AlertDialog.Builder = AlertDialog.Builder(context)
+            builder.setTitle("Thông báo")
+                .setIcon(R.drawable.baseline_announcement_24)
+                .setMessage("Bạn có muốn xóa loại sản phẩm không")
+                .setPositiveButton("Đồng ý") { dialog, which ->
+                    deleteCategory(item.id, position, context)
+                }
+                .setNegativeButton("Hủy", { dialog, which ->
+                    dialog.dismiss()
+                })
+            builder.show()
+        }
+    }
+
+    fun deleteCategory(idCategory: Int, position: Int, context: Context) {
+        compositeDisposable.add(
+            apiCafe.deleteCategory(idCategory)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ categoryModel ->
+                    if (categoryModel.isSuccess()) {
+                        listCategory.removeAt(position)
+                        notifyItemRemoved(position)
+                        notifyItemRangeChanged(position, listCategory.size)
                         Toast.makeText(
                             context,
-                            "Lỗi : ${throwable.message}",
+                            "Xóa loại đồ uống thành công",
                             Toast.LENGTH_SHORT
                         ).show()
-
+                    } else {
+                        Toast.makeText(
+                            context,
+                            "Xóa loại đồ uống không thành công",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
-                    )
-            )
-        }
+                }, { throwable ->
+                    Toast.makeText(
+                        context,
+                        "Lỗi : ${throwable.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }
+                )
+        )
     }
 }

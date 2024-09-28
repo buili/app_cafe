@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".view.activity.admin.OrderCompeteActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.activity.admin.OrderTrackingActivity"
             android:exported="false" />
         <activity
@@ -52,8 +55,6 @@
         <activity
             android:name=".view.activity.user.MainActivity"
             android:exported="true" />
-
     </application>
-
 
 </manifest>

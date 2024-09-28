@@ -8,6 +8,7 @@ import com.example.cafe2.R
 import com.example.cafe2.databinding.ActivityAdminBinding
 import com.example.cafe2.view.fragment.admin.CategoryFragment
 import com.example.cafe2.view.fragment.admin.OrderFragment
+import com.example.cafe2.view.fragment.admin.ProductFragment
 import com.example.cafe2.view.fragment.admin.SettingFragment
 import com.example.cafe2.view.fragment.user.HomeFragment
 
@@ -30,6 +31,10 @@ class AdminActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.navigation_category -> {
                     replaceFragment(CategoryFragment())
+                    true
+                }
+                R.id.navigation_beverage -> {
+                    replaceFragment(ProductFragment())
                     true
                 }
                 R.id.navigation_order->{

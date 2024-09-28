@@ -5,7 +5,7 @@ import com.example.cafe2.model.admin.Category
 import com.example.cafe2.model.user.Cart
 
 object Utils {
-    const  val BASE_URL:String = "http://192.168.1.3/cafe/"
+    const  val BASE_URL:String = "http://192.168.1.52/cafe/"
     var listCategory: MutableList<Category> = ArrayList()
     var userCurrent:User = User()
     var listPurchase:MutableList<Cart> = ArrayList()

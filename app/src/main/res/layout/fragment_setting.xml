@@ -5,8 +5,52 @@
 <androidx.appcompat.widget.LinearLayoutCompat
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="Email"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="admin@gmail.com"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="25dp"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/baseline_announcement_24"
+        android:text="Đồ uống đi kèm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="15dp"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/baseline_contact_phone_24"
+        android:text="Chương trình khuyến mại"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginTop="15dp"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/baseline_admin_panel_settings_24"
+        android:text="Phản hồi &amp; góp ý"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/txtLogout"
+        android:layout_marginTop="15dp"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/baseline_logout_24"
+        android:text="Đăng xuất"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_logout"
         android:text="Đăng xuất"

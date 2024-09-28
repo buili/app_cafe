@@ -6,6 +6,7 @@ import java.io.Serializable
 class Product(private var id:Int,
               private var name:String,
               private var image:String,
+              private var id_category:Int,
               private var price:Int) : Serializable {
     fun getId(): Int {
         return id
@@ -34,5 +35,11 @@ class Product(private var id:Int,
     }
     fun setPrice(value: Int){
         price = value
+    }
+    fun getIdCategory(): Int {
+        return id_category
+    }
+    fun setIdCategory(value: Int){
+        id_category = value
     }
 }

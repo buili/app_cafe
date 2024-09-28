@@ -1,5 +1,6 @@
 package com.example.cafe2.retrofit
 
+import com.example.cafe2.model.MessageModelShare
 import com.example.cafe2.model.UserModel
 import com.example.cafe2.model.admin.CategoryModel
 import com.example.cafe2.model.admin.ItemModel
@@ -10,15 +11,19 @@ import com.example.cafe2.model.user.CartModel
 import com.example.cafe2.model.user.MessageModel
 import com.example.cafe2.model.user.ProductModel
 import io.reactivex.rxjava3.core.Observable
+import okhttp3.MultipartBody
+import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
+import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.Part
 
 interface ApiCafe {
-    @POST("getProduct.php")
+    @POST("getProductByCategory.php")
     @FormUrlEncoded
-    fun getProduct(
+    fun getProductByCategory(
         @Field("id_category") id_category: Int?,
     ): Observable<ProductModel>
 
@@ -156,4 +161,43 @@ interface ApiCafe {
         @Field("email") email: String
     ): Observable<UserModel>
 
+    @POST("getRole.php")
+    @FormUrlEncoded
+    fun getRole(
+        @Field("idUser") idUser: Int
+    ): Observable<UserModel>
+
+    @GET("getProduct.php")
+    fun getProduct(
+    ): Observable<ProductModel>
+
+    @POST("addProduct.php")
+    @FormUrlEncoded
+    fun addProduct(
+        @Field("name") name: String,
+        @Field("price") price: Int,
+        @Field("image") image: String,
+        @Field("id_category") id_category: Int,
+    ): Observable<ProductModel>
+
+
+    @Multipart
+    @POST("uploadImgProduct.php")
+    fun uploadImgProduct(@Part file: MultipartBody.Part): Call<MessageModelShare>
+
+    @POST("deleteProduct.php")
+    @FormUrlEncoded
+    fun deleteProduct(
+        @Field("id") id: Int
+    ): Observable<ProductModel>
+
+    @POST("editProduct.php")
+    @FormUrlEncoded
+    fun editProduct(
+        @Field("id") id: Int,
+        @Field("name") name: String,
+        @Field("price") price: Int,
+        @Field("image") image: String,
+        @Field("id_category") id_category: Int,
+    ): Observable<ProductModel>
 }

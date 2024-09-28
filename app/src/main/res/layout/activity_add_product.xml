@@ -2,102 +2,170 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<androidx.appcompat.widget.LinearLayoutCompat
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".view.activity.admin.AddProductActivity">
-    <androidx.appcompat.widget.Toolbar
-        app:title="Thêm đồ uống"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"/>
 
-    <LinearLayout
-        android:layout_margin="8dp"
-        android:orientation="vertical"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:text="Tên"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:layout_marginTop="3dp"
-            android:padding="8dp"
-            android:background="@drawable/background_edt"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".view.activity.admin.AddProductActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:title="Thêm đồ uống" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Tên" />
+
+            <EditText
+                android:id="@+id/edtProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/background_edt"
+                android:padding="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Thể loại" />
+
+            <Spinner
+                android:id="@+id/spinnerCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+
+                android:padding="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/edtDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Mô tả" />
+
+            <EditText
+                android:id="@+id/edtDescribe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/background_edt"
+                android:padding="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Giá" />
+
+            <EditText
+                android:id="@+id/edtPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/background_edt"
+                android:padding="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Khuyến mại" />
+
+            <EditText
+                android:id="@+id/edtPromotion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/background_edt"
+                android:padding="8dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="Hình ảnh" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="5">
+                <EditText
+                    android:id="@+id/edtNameImg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/background_edt"
+                    android:padding="8dp" />
+
+                <ImageView
+                    android:id="@+id/imgAddProduct"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/baseline_camera_alt_24" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_add_product"
+            android:text="Thêm"
+            android:background="@color/button"
+            android:layout_marginTop="15dp"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_margin="8dp"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:text="Tên"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:layout_marginTop="3dp"
-            android:padding="8dp"
-            android:background="@drawable/background_edt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_margin="8dp"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:text="Tên"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:layout_marginTop="3dp"
-            android:padding="8dp"
-            android:background="@drawable/background_edt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_margin="8dp"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:text="Tên"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:layout_marginTop="3dp"
-            android:padding="8dp"
-            android:background="@drawable/background_edt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_margin="8dp"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:text="Tên"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <EditText
-            android:layout_marginTop="3dp"
-            android:padding="8dp"
-            android:background="@drawable/background_edt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-</androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 
 </layout>

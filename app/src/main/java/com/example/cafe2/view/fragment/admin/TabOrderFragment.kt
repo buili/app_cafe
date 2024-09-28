@@ -12,14 +12,12 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cafe2.R
-import com.example.cafe2.adapter.admin.ItemOrderAdapter
 import com.example.cafe2.adapter.admin.OrderItemAdapter
 import com.example.cafe2.databinding.FragmentTabOrderBinding
 import com.example.cafe2.model.admin.Orders
 import com.example.cafe2.retrofit.ApiCafe
 import com.example.cafe2.retrofit.RetrofitClient
 import com.example.cafe2.util.Utils
-import com.example.cafe2.view.fragment.user.TabFragment
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers

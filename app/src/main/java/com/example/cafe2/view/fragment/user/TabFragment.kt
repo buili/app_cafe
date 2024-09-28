@@ -95,7 +95,7 @@ class TabFragment : Fragment() {
 
     private fun getData(idCategory: Int) {
         compositeDisposable.add(
-            apiCafe.getProduct(idCategory)
+            apiCafe.getProductByCategory(idCategory)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

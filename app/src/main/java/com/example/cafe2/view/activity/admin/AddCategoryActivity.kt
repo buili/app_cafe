@@ -43,7 +43,7 @@ class AddCategoryActivity : AppCompatActivity() {
             flag = false
         } else {
             flag = true
-            btnAddCategory.text = "Sửa sản phẩm"
+            btnAddCategory.text = "Sửa thể loại"
             //  edtNameCategory.text = Category.nameCategory
             edtNameCategory.text =
                 Editable.Factory.getInstance().newEditable(category!!.nameCategory)
